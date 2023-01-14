@@ -26,6 +26,7 @@ jobs:
     - name: Install requests #安装requests
       run: |
         pip install requests
+        pip install pytz
     - name: Read config from secrets  #读取机密
       env: 
         CONFIG_ID: ${{ secrets.CONFIG_ID }} # secrets_id 提供
