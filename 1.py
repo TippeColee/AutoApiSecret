@@ -67,7 +67,7 @@ def main():
                 print("调用成功: ", api_url)
             else:
                 print("调用异常: ", api_url)
-        num1++
+        num1+=1
         print('第'+str(num1)+'次运行结束时间为: ', localtime)
     except:
         print("调用出现异常，pass")
