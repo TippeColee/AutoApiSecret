@@ -15,7 +15,7 @@ import datetime,pytz
 
 
 path=sys.path[0]+r'/1.txt'
-
+num1=0
 
 api_list = [
     r'https://graph.microsoft.com/v1.0/me/drive/root',
@@ -50,7 +50,7 @@ def main():
     fo = open(path, "r+")
     refresh_token = fo.read()
     fo.close()
-
+    global num1
     localtime = datetime.datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S")
     access_token=gettoken(refresh_token)
     headers={
@@ -67,8 +67,8 @@ def main():
                 print("调用成功: ", api_url)
             else:
                 print("调用异常: ", api_url)
-
-        print('此次运行结束时间为: ', localtime)
+        num1++
+        print('第'+str(num1)+'次运行结束时间为: ', localtime)
     except:
         print("调用出现异常，pass")
         pass
