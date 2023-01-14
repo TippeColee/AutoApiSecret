@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import requests as req
-import json,sys,time
+import json,sys
+import datetime,pytz
 #先注册azure应用,确保应用有以下权限:
 #files:	Files.Read.All、Files.ReadWrite.All、Sites.Read.All、Sites.ReadWrite.All
 #user:	User.Read.All、User.ReadWrite.All、Directory.Read.All、Directory.ReadWrite.All
@@ -36,7 +37,7 @@ def main():
     refresh_token = fo.read()
     fo.close()
     global num1
-    localtime = time.asctime( time.localtime(time.time()) )
+    localtime = datetime.datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S")
     access_token=gettoken(refresh_token)
     headers={
     'Authorization':access_token,
